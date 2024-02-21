@@ -55,7 +55,7 @@ if __name__=='__main__':
                           betas=(0.5,0.999))
     criterion=nn.BCELoss()
     
-    n_epoch=1#
+    n_epoch=300#
     for epoch in range(n_epoch):
         for i,data in enumerate(dl_train):
             data= data.to(device)
@@ -86,6 +86,6 @@ if __name__=='__main__':
                 torchvision.utils.save_image(fake.detach(), '%s/fake_epoch_%d.png'% (out_dir, epoch), normalize=True)
     torch.save(netG.cpu(), os.path.join('weight/model', "modelsG.pt"))
     torch.save(netD.cpu(), os.path.join('weight/model', "modelsD.pt"))
-    torch.save(netG.cpu().state_dict(), os.path.join('weight/model', "models_dictG.pt"))
-    torch.save(netD.cpu().state_dict(), os.path.join('weight/model', "models_dictD.pt"))
+    torch.save(netG.cpu().state_dict(), os.path.join('weight/model', "models_dictG.pth"))
+    torch.save(netD.cpu().state_dict(), os.path.join('weight/model', "models_dictD.pth"))
 
